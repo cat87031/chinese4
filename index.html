@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第四課：一天的時間 - 語文學習網頁</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft JhengHei", "Heiti TC", "LiHei Pro", sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #4a90e2;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #3498db;
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        h3 {
+            color: #2980b9;
+            margin: 20px 0 10px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .poem {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid #3498db;
+            font-size: 1.2rem;
+            line-height: 2;
+            margin: 20px 0;
+        }
+        
+        .ruby {
+            display: inline-block;
+            text-align: center;
+            margin: 0 2px;
+            line-height: 1.5;
+        }
+        
+        rt {
+            font-size: 0.6em;
+            display: block;
+            text-align: center;
+        }
+        
+        .word-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .word-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .word-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .word-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .character {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            color: #2c3e50;
+        }
+        
+        .word-info {
+            flex: 1;
+        }
+        
+        .word-info p {
+            margin: 5px 0;
+        }
+        
+        .similar-words {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .similar-card {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .similar-character {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .example {
+            background: #e8f4fc;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 8px 0;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .word-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .similar-words {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>第四課：一天的時間</h1>
+            <p>語文學習網頁 - 課文、生字與形近字比較</p>
+        </header>
+        
+        <section class="section">
+            <h2>1. 課文內容</h2>
+            <div class="poem">
+                <p><ruby class="ruby">一<rt>ㄧ</rt></ruby><ruby class="ruby">天<rt>ㄊㄧㄢ</rt></ruby><ruby class="ruby">的<rt>˙ㄉㄜ</rt></ruby><ruby class="ruby">時<rt>ㄕˊ</rt></ruby><ruby class="ruby">間<rt>ㄐㄧㄢ</rt></ruby>，</p>
+                <p><ruby class="ruby">像<rt>ㄒㄧㄤˋ</rt></ruby><ruby class="ruby">一<rt>ㄧ</rt></ruby><ruby class="ruby">塊<rt>ㄎㄨㄞˋ</rt></ruby><ruby class="ruby">圓<rt>ㄩㄢˊ</rt></ruby><ruby class="ruby">形<rt>ㄒㄧㄥˊ</rt></ruby><ruby class="ruby">的<rt>˙ㄉㄜ</rt></ruby><ruby class="ruby">大<rt>ㄉㄚˋ</rt></ruby><ruby class="ruby">芝<rt>ㄓ</rt></ruby><ruby class="ruby">麻<rt>ㄇㄚˊ</rt></ruby><ruby class="ruby">餅<rt>ㄅㄧㄥˇ</rt></ruby>。</p>
+                <br>
+                <p><ruby class="ruby">睡<rt>ㄕㄨㄟˋ</rt></ruby><ruby class="ruby">覺<rt>ㄐㄧㄠˋ</rt></ruby><ruby class="ruby">咬<rt>ㄧㄠˇ</rt></ruby><ruby class="ruby">一<rt>ㄧ</rt></ruby><ruby class="ruby">大<rt>ㄉㄚˋ</rt></ruby><ruby class="ruby">口<rt>ㄎㄡˇ</rt></ruby>，</p>
+                <p><ruby class="ruby">上<rt>ㄕㄤˋ</rt></ruby><ruby class="ruby">學<rt>ㄒㄩㄝˊ</rt></ruby><ruby class="ruby">咬<rt>ㄧㄠˇ</rt></ruby><ruby class="ruby">一<rt>ㄧ</rt></ruby><ruby class="ruby">大<rt>ㄉㄚˋ</rt></ruby><ruby class="ruby">口<rt>ㄎㄡˇ</rt></ruby>，</p>
+                <p><ruby class="ruby">吃<rt>ㄔ</rt></ruby><ruby class="ruby">飯<rt>ㄈㄢˋ</rt></ruby><ruby class="ruby">咬<rt>ㄧㄠˇ</rt></ruby><ruby class="ruby">一<rt>ㄧ</rt></ruby><ruby class="ruby">口<rt>ㄎㄡˇ</rt></ruby>，</p>
+                <p><ruby class="ruby">做<rt>ㄗㄨㄛˋ</rt></ruby><ruby class="ruby">功<rt>ㄍㄨㄥ</rt></ruby><ruby class="ruby">課<rt>ㄎㄜˋ</rt></ruby><ruby class="ruby">咬<rt>ㄧㄠˇ</rt></ruby><ruby class="ruby">一<rt>ㄧ</rt></ruby><ruby class="ruby">口<rt>ㄎㄡˇ</rt></ruby>，</p>
+                <p><ruby class="ruby">洗<rt>ㄒㄧˇ</rt></ruby><ruby class="ruby">澡<rt>ㄗㄠˇ</rt></ruby><ruby class="ruby">咬<rt>ㄧㄠˇ</rt></ruby><ruby class="ruby">一<rt>ㄧ</rt></ruby><ruby class="ruby">小<rt>ㄒㄧㄠˇ</rt></ruby><ruby class="ruby">口<rt>ㄎㄡˇ</rt></ruby>，</p>
+                <p><ruby class="ruby">收<rt>ㄕㄡ</rt></ruby><ruby class="ruby">拾<rt>ㄕˊ</rt></ruby><ruby class="ruby">房<rt>ㄈㄤˊ</rt></ruby><ruby class="ruby">間<rt>ㄐㄧㄢ</rt></ruby><ruby class="ruby">咬<rt>ㄧㄠˇ</rt></ruby><ruby class="ruby">一<rt>ㄧ</rt></ruby><ruby class="ruby">小<rt>ㄒㄧㄠˇ</rt></ruby><ruby class="ruby">口<rt>ㄎㄡˇ</rt></ruby>，</p>
+                <p><ruby class="ruby">整<rt>ㄓㄥˇ</rt></ruby><ruby class="ruby">理<rt>ㄌㄧˇ</rt></ruby><ruby class="ruby">書<rt>ㄕㄨ</rt></ruby><ruby class="ruby">包<rt>ㄅㄠ</rt></ruby><ruby class="ruby">再<rt>ㄗㄞˋ</rt></ruby><ruby class="ruby">咬<rt>ㄧㄠˇ</rt></ruby><ruby class="ruby">一<rt>ㄧ</rt></ruby><ruby class="ruby">小<rt>ㄒㄧㄠˇ</rt></ruby><ruby class="ruby">小<rt>ㄒㄧㄠˇ</rt></ruby><ruby class="ruby">口<rt>ㄎㄡˇ</rt></ruby>。</p>
+                <p><ruby class="ruby">哇<rt>ㄨㄚ</rt></ruby>！</p>
+                <p><ruby class="ruby">玩<rt>ㄨㄢˊ</rt></ruby><ruby class="ruby">遊<rt>ㄧㄡˊ</rt></ruby><ruby class="ruby">戲<rt>ㄒㄧˋ</rt></ruby><ruby class="ruby">的<rt>˙ㄉㄜ</rt></ruby><ruby class="ruby">時<rt>ㄕˊ</rt></ruby><ruby class="ruby">間<rt>ㄐㄧㄢ</rt></ruby>，</p>
+                <p><ruby class="ruby">只<rt>ㄓˇ</rt></ruby><ruby class="ruby">剩<rt>ㄕㄥˋ</rt></ruby><ruby class="ruby">大<rt>ㄉㄚˋ</rt></ruby><ruby class="ruby">餅<rt>ㄅㄧㄥˇ</rt></ruby><ruby class="ruby">上<rt>ㄕㄤˋ</rt></ruby><ruby class="ruby">的<rt>˙ㄉㄜ</rt></ruby><ruby class="ruby">芝<rt>ㄓ</rt></ruby><ruby class="ruby">麻<rt>ㄇㄚˊ</rt></ruby><ruby class="ruby">了<rt>˙ㄌㄜ</rt></ruby>。</p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>2. 生字總表</h2>
+            <div class="word-list">
+                <!-- 塊 -->
+                <div class="word-card">
+                    <div class="word-header">
+                        <div class="character">塊</div>
+                        <div class="word-info">
+                            <p><strong>注音：</strong>ㄎㄨㄞˋ</p>
+                            <p><strong>部首筆畫：</strong>土部（3畫）</p>
+                        </div>
+                    </div>
+                    <p><strong>造詞：</strong>方塊、塊狀、石塊</p>
+                    <p><strong>成語：</strong>大塊文章、一塊石頭落地、鐵板一塊</p>
+                    <div class="example">
+                        <p><strong>造句：</strong></p>
+                        <p>1. 他把蛋糕切成小塊分給大家。</p>
+                        <p>2. 這塊土地非常肥沃，適合種植農作物。</p>
+                    </div>
+                </div>
+                
+                <!-- 圓 -->
+                <div class="word-card">
+                    <div class="word-header">
+                        <div class="character">圓</div>
+                        <div class="word-info">
+                            <p><strong>注音：</strong>ㄩㄢˊ</p>
+                            <p><strong>部首筆畫：</strong>囗部（3畫）</p>
+                        </div>
+                    </div>
+                    <p><strong>造詞：</strong>圓形、圓滿、圓圈</p>
+                    <p><strong>成語：</strong>破鏡重圓、花好月圓、自圓其說</p>
+                    <div class="example">
+                        <p><strong>造句：</strong></p>
+                        <p>1. 中秋節的月亮又大又圓。</p>
+                        <p>2. 他畫了一個完美的圓形。</p>
+                    </div>
+                </div>
+                
+                <!-- 形 -->
+                <div class="word-card">
+                    <div class="word-header">
+                        <div class="character">形</div>
+                        <div class="word-info">
+                            <p><strong>注音：</strong>ㄒㄧㄥˊ</p>
+                            <p><strong>部首筆畫：</strong>彡部（3畫）</p>
+                        </div>
+                    </div>
+                    <p><strong>造詞：</strong>形狀、形成、形容</p>
+                    <p><strong>成語：</strong>形影不離、得意忘形、如影隨形</p>
+                    <div class="example">
+                        <p><strong>造句：</strong></p>
+                        <p>1. 這塊石頭的形狀很特別。</p>
+                        <p>2. 他們兩個是形影不離的好朋友。</p>
+                    </div>
+                </div>
+                
+                <!-- 芝 -->
+                <div class="word-card">
+                    <div class="word-header">
+                        <div class="character">芝</div>
+                        <div class="word-info">
+                            <p><strong>注音：</strong>ㄓ</p>
+                            <p><strong>部首筆畫：</strong>艸部（4畫）</p>
+                        </div>
+                    </div>
+                    <p><strong>造詞：</strong>芝麻、靈芝、芝蘭</p>
+                    <p><strong>成語：</strong>芝蘭玉樹、如入芝蘭之室、紫芝眉宇</p>
+                    <div class="example">
+                        <p><strong>造句：</strong></p>
+                        <p>1. 芝麻雖然小，但營養價值很高。</p>
+                        <p>2. 靈芝是一種珍貴的中藥材。</p>
+                    </div>
+                </div>
+                
+                <!-- 麻 -->
+                <div class="word-card">
+                    <div class="word-header">
+                        <div class="character">麻</div>
+                        <div class="word-info">
+                            <p><strong>注音：</strong>ㄇㄚˊ</p>
+                            <p><strong>部首筆畫：</strong>麻部（11畫）</p>
+                        </div>
+                    </div>
+                    <p><strong>造詞：</strong>麻煩、芝麻、麻木</p>
+                    <p><strong>成語：</strong>麻木不仁、心亂如麻、殺人如麻</p>
+                    <div class="example">
+                        <p><strong>造句：</strong></p>
+                        <p>1. 這道數學題真麻煩，我想了很久還是不會。</p>
+                        <p>2. 坐太久腳都麻了。</p>
+                    </div>
+                </div>
+                
+                <!-- 餅 -->
+                <div class="word-card">
+                    <div class="word-header">
+                        <div class="character">餅</div>
+                        <div class="word-info">
+                            <p><strong>注音：</strong>ㄅㄧㄥˇ</p>
+                            <p><strong>部首筆畫：</strong>食部（9畫）</p>
+                        </div>
+                    </div>
+                    <p><strong>造詞：</strong>餅乾、月餅、煎餅</p>
+                    <p><strong>成語：</strong>畫餅充飢、一漿十餅、寶珠市餅</p>
+                    <div class="example">
+                        <p><strong>造句：</strong></p>
+                        <p>1. 媽媽買了一盒餅乾給我當點心。</p>
+                        <p>2. 中秋節我們吃月餅賞月。</p>
+                    </div>
+                </div>
+                
+                <!-- 咬 -->
+                <div class="word-card">
+                    <div class="word-header">
+                        <div class="character">咬</div>
+                        <div class="word-info">
+                            <p><strong>注音：</strong>ㄧㄠˇ</p>
+                            <p><strong>部首筆畫：</strong>口部（3畫）</p>
+                        </div>
+                    </div>
+                    <p><strong>造詞：</strong>咬住、咬緊、咬傷</p>
+                    <p><strong>成語：</strong>咬文嚼字、咬牙切齒、一口咬定</p>
+                    <div class="example">
+                        <p><strong>造句：</strong></p>
+                        <p>1. 小狗咬住了我的褲管不放。</p>
+                        <p>2. 他咬緊牙關，繼續向前跑。</p>
+                    </div>
+                </div>
+                
+                <!-- 飯 -->
+                <div class="word-card">
+                    <div class="word-header">
+                        <div class="character">飯</div>
+                        <div class="word-info">
+                            <p><strong>注音：</strong>ㄈㄢˋ</p>
+                            <p><strong>部首筆畫：</strong>食部（9畫）</p>
+                        </div>
+                    </div>
+                    <p><strong>造詞：</strong>吃飯、飯碗、飯店</p>
+                    <p><strong>成語：</strong>飯來張口、粗茶淡飯、茶餘飯後</p>
+                    <div class="example">
+                        <p><strong>造句：</strong></p>
+                        <p>1. 我們每天都要按時吃飯。</p>
+                        <p>2. 這家飯店的菜很好吃。</p>
+                    </div>
+                </div>
+                
+                <!-- 做 -->
+                <div class="word-card">
+                    <div class="word-header">
+                        <div class="character">做</div>
+                        <div class="word-info">
+                            <p><strong>注音：</strong>ㄗㄨㄛˋ</p>
+                            <p><strong>部首筆畫：</strong>人部（2畫）</p>
+                        </div>
+                    </div>
+                    <p><strong>造詞：</strong>做事、做夢、做工</p>
+                    <p><strong>成語：</strong>做賊心虛、好吃懶做、白日做夢</p>
+                    <div class="example">
+                        <p><strong>造句：</strong></p>
+                        <p>1. 他做事很認真，從不馬虎。</p>
+                        <p>2. 我昨晚做了一個奇怪的夢。</p>
+                    </div>
+                </div>
+                
+                <!-- 課 -->
+                <div class="word-card">
+                    <div class="word-header">
+                        <div class="character">課</div>
+                        <div class="word-info">
+                            <p><strong>注音：</strong>ㄎㄜˋ</p>
+                            <p><strong>部首筆畫：</strong>言部（7畫）</p>
+                        </div>
+                    </div>
+                    <p><strong>造詞：</strong>課本、上課、功課</p>
+                    <p><strong>成語：</strong>日程月課、課語訛言</p>
+                    <div class="example">
+                        <p><strong>造句：</strong></p>
+                        <p>1. 明天要上新的課文。</p>
+                        <p>2. 我每天放學後都要寫功課。</p>
+                    </div>
+                </div>
+                
+                <!-- 洗 -->
+                <div class="word-card">
+                    <div class="word-header">
+                        <div class="character">洗</div>
+                        <div class="word-info">
+                            <p><strong>注音：</strong>ㄒㄧˇ</p>
+                            <p><strong>部首筆畫：</strong>水部（4畫）</p>
+                        </div>
+                    </div>
+                    <p><strong>造詞：</strong>洗手、洗澡、洗臉</p>
+                    <p><strong>成語：</strong>洗心革面、一貧如洗、接風洗塵</p>
+                    <div class="example">
+                        <p><strong>造句：</strong></p>
+                        <p>1. 吃飯前要先洗手。</p>
+                        <p>2. 他決定洗心革面，重新做人。</p>
+                    </div>
+                </div>
+                
+                <!-- 澡 -->
+                <div class="word-card">
+                    <div class="word-header">
+                        <div class="character">澡</div>
+                        <div class="word-info">
+                            <p><strong>注音：</strong>ㄗㄠˇ</p>
+                            <p><strong>部首筆畫：</strong>水部（4畫）</p>
+                        </div>
+                    </div>
+                    <p><strong>造詞：</strong>洗澡、澡堂、澡盆</p>
+                    <p><strong>成語：</strong>澡身浴德</p>
+                    <div class="example">
+                        <p><strong>造句：</strong></p>
+                        <p>1. 我每天晚上都會洗澡。</p>
+                        <p>2. 這家澡堂很乾淨。</p>
+                    </div>
+                </div>
+                
+                <!-- 拾 -->
+                <div class="word-card">
+                    <div class="word-header">
+                        <div class="character">拾</div>
+                        <div class="word-info">
+                            <p><strong>注音：</strong>ㄕˊ</p>
+                            <p><strong>部首筆畫：</strong>手部（4畫）</p>
+                        </div>
+                    </div>
+                    <p><strong>造詞：</strong>收拾、拾起、拾荒</p>
+                    <p><strong>成語：</strong>拾金不昧、路不拾遺、俯拾即是</p>
+                    <div class="example">
+                        <p><strong>造句：</strong></p>
+                        <p>1. 請把玩具收拾好。</p>
+                        <p>2. 他拾金不昧，把錢包交給了警察。</p>
+                    </div>
+                </div>
+                
+                <!-- 整 -->
+                <div class="word-card">
+                    <div class="word-header">
+                        <div class="character">整</div>
+                        <div class="word-info">
+                            <p><strong>注音：</strong>ㄓㄥˇ</p>
+                            <p><strong>部首筆畫：</strong>攴部（4畫）</p>
+                        </div>
+                    </div>
+                    <p><strong>造詞：</strong>整理、整齊、整潔</p>
+                    <p><strong>成語：</strong>整裝待發、化整為零、整襟危坐</p>
+                    <div class="example">
+                        <p><strong>造句：</strong></p>
+                        <p>1. 我每天都會整理書包。</p>
+                        <p>2. 房間保持整齊很重要。</p>
+                    </div>
+                </div>
+                
+                <!-- 包 -->
+                <div class="word-card">
+                    <div class="word-header">
+                        <div class="character">包</div>
+                        <div class="word-info">
+                            <p><strong>注音：</strong>ㄅㄠ</p>
+                            <p><strong>部首筆畫：</strong>勹部（2畫）</p>
+                        </div>
+                    </div>
+                    <p><strong>造詞：</strong>書包、包子、包裝</p>
+                    <p><strong>成語：</strong>包羅萬象、膽大包天、包藏禍心</p>
+                    <div class="example">
+                        <p><strong>造句：</strong></p>
+                        <p>1. 我的書包是藍色的。</p>
+                        <p>2. 這家店的包子很好吃。</p>
+                    </div>
+                </div>
+                
+                <!-- 遊 -->
+                <div class="word-card">
+                    <div class="word-header">
+                        <div class="character">遊</div>
+                        <div class="word-info">
+                            <p><strong>注音：</strong>ㄧㄡˊ</p>
+                            <p><strong>部首筆畫：</strong>辵部（4畫）</p>
+                        </div>
+                    </div>
+                    <p><strong>造詞：</strong>遊戲、遊玩、旅遊</p>
+                    <p><strong>成語：</strong>遊手好閒、遊刃有餘、舊地重遊</p>
+                    <div class="example">
+                        <p><strong>造句：</strong></p>
+                        <p>1. 小朋友們在公園裡玩遊戲。</p>
+                        <p>2. 我們計畫暑假去日本旅遊。</p>
+                    </div>
+                </div>
+                
+                <!-- 戲 -->
+                <div class="word-card">
+                    <div class="word-header">
+                        <div class="character">戲</div>
+                        <div class="word-info">
+                            <p><strong>注音：</strong>ㄒㄧˋ</p>
+                            <p><strong>部首筆畫：</strong>戈部（4畫）</p>
+                        </div>
+                    </div>
+                    <p><strong>造詞：</strong>遊戲、戲劇、戲院</p>
+                    <p><strong>成語：</strong>視同兒戲、逢場作戲、拿手好戲</p>
+                    <div class="example">
+                        <p><strong>造句：</strong></p>
+                        <p>1. 我們一起玩遊戲吧。</p>
+                        <p>2. 這齣戲劇非常精彩。</p>
+                    </div>
+                </div>
+                
+                <!-- 剩 -->
+                <div class="word-card">
+                    <div class="word-header">
+                        <div class="character">剩</div>
+                        <div class="word-info">
+                            <p><strong>注音：</strong>ㄕㄥˋ</p>
+                            <p><strong>部首筆畫：</strong>刀部（2畫）</p>
+                        </div>
+                    </div>
+                    <p><strong>造詞：</strong>剩下、剩餘、剩飯</p>
+                    <p><strong>成語：</strong>殘羹剩飯、所剩無幾</p>
+                    <div class="example">
+                        <p><strong>造句：</strong></p>
+                        <p>1. 蛋糕只剩下一小塊了。</p>
+                        <p>2. 我們要把剩餘的飯菜保存好。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>3. 形近字比較</h2>
+            <div class="similar-words">
+                <!-- 麻 vs 麼 -->
+                <div class="similar-card">
+                    <div class="similar-character">
+                        <ruby>麻<rt>ㄇㄚˊ</rt></ruby> vs <ruby>麼<rt>˙ㄇㄜ</rt></ruby>
+                    </div>
+                    <p><strong>麻：</strong>麻煩、麻布、芝麻</p>
+                    <p><strong>麼：</strong>什麼、怎麼、那麼</p>
+                    <div class="example">
+                        <p><strong>例句：</strong></p>
+                        <p>1. 這件事情真<strong>麻</strong>煩。</p>
+                        <p>2. 這是<strong>麼</strong>東西？</p>
+                    </div>
+                </div>
+                
+                <!-- 咬 vs 校 -->
+                <div class="similar-card">
+                    <div class="similar-character">
+                        <ruby>咬<rt>ㄧㄠˇ</rt></ruby> vs <ruby>校<rt>ㄒㄧㄠˋ</rt></ruby>
+                    </div>
+                    <p><strong>咬：</strong>咬住、咬緊、咬傷</p>
+                    <p><strong>校：</strong>學校、校門、校長</p>
+                    <div class="example">
+                        <p><strong>例句：</strong></p>
+                        <p>1. 小狗<strong>咬</strong>住了我的褲子。</p>
+                        <p>2. 我每天走路去學<strong>校</strong>。</p>
+                    </div>
+                </div>
+                
+                <!-- 做 vs 故 -->
+                <div class="similar-card">
+                    <div class="similar-character">
+                        <ruby>做<rt>ㄗㄨㄛˋ</rt></ruby> vs <ruby>故<rt>ㄍㄨˋ</rt></ruby>
+                    </div>
+                    <p><strong>做：</strong>做夢、做事、做飯</p>
+                    <p><strong>故：</strong>故意、故事、故鄉</p>
+                    <div class="example">
+                        <p><strong>例句：</strong></p>
+                        <p>1. 我昨晚<strong>做</strong>了一個好夢。</p>
+                        <p>2. 奶奶講的<strong>故</strong>事很有趣。</p>
+                    </div>
+                </div>
+                
+                <!-- 課 vs 棵 -->
+                <div class="similar-card">
+                    <div class="similar-character">
+                        <ruby>課<rt>ㄎㄜˋ</rt></ruby> vs <ruby>棵<rt>ㄎㄜ</rt></ruby>
+                    </div>
+                    <p><strong>課：</strong>課業、課本、上課</p>
+                    <p><strong>棵：</strong>一棵樹</p>
+                    <div class="example">
+                        <p><strong>例句：</strong></p>
+                        <p>1. 明天要上新的<strong>課</strong>文。</p>
+                        <p>2. 院子裡有一<strong>棵</strong>大樹。</p>
+                    </div>
+                </div>
+                
+                <!-- 洗 vs 先 -->
+                <div class="similar-card">
+                    <div class="similar-character">
+                        <ruby>洗<rt>ㄒㄧˇ</rt></ruby> vs <ruby>先<rt>ㄒㄧㄢ</rt></ruby>
+                    </div>
+                    <p><strong>洗：</strong>洗手、清洗、洗臉</p>
+                    <p><strong>先：</strong>領先、先生、先後</p>
+                    <div class="example">
+                        <p><strong>例句：</strong></p>
+                        <p>1. 吃飯前要<strong>洗</strong>手。</p>
+                        <p>2. 他跑得最快，<strong>先</strong>到達終點。</p>
+                    </div>
+                </div>
+                
+                <!-- 遊 vs 游 -->
+                <div class="similar-card">
+                    <div class="similar-character">
+                        <ruby>遊<rt>ㄧㄡˊ</rt></ruby> vs <ruby>游<rt>ㄧㄡˊ</rt></ruby>
+                    </div>
+                    <p><strong>遊：</strong>郊遊、旅遊、遊玩</p>
+                    <p><strong>游：</strong>游泳、游水、遊動</p>
+                    <div class="example">
+                        <p><strong>例句：</strong></p>
+                        <p>1. 我們計畫週末去郊<strong>遊</strong>。</p>
+                        <p>2. 夏天我最喜歡去<strong>游</strong>泳。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <div class="footer">
+            <p>生字清單參考來源：教育雲「教育百科」 | 成語檢索連結至教育部《成語典》</p>
+            <p>© 2023 語文學習網頁</p>
+        </div>
+    </div>
+</body>
+</html>
